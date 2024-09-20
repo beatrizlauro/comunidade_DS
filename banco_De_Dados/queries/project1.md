@@ -1,8 +1,8 @@
 ### 1- Gere uma tabela com o id do cliente, a cidade e o estado onde ele vive.
-````
+```
 SELECT customer_id, customer_city, customer_state 
 FROM customer;
-````
+```
 ___
 ### 2- Gere uma tabela com o id do cliente e a cidade, somente dos clientes que vivem em Santa Catarina.
 ```
