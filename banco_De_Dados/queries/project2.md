@@ -125,4 +125,4 @@ FROM products p;
 ```
 ___
 
-<img src="https://media.giphy.com/media/xT77XZrTKOxycjaYvK/giphy.gif?cid=790b7611lqe4ipkvaiz1rfni84u5vbe4qv6c1xdkhzfkl840&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="cat eith glasses" width="280" height="200" style="display: block; margin: auto;">
+<img src="https://media.giphy.com/media/xT77XZrTKOxycjaYvK/giphy.gif?cid=790b7611lqe4ipkvaiz1rfni84u5vbe4qv6c1xdkhzfkl840&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="cat with glasses" width="280" height="200" style="display: block; margin: auto;">
