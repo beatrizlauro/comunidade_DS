@@ -55,4 +55,4 @@ GROUP BY oi.seller_id;
 ```
 ___
 
-<img src="https://media.giphy.com/media/5Zesu5VPNGJlm/giphy.gif?cid=790b7611hx551rcmlsmjqtardhs3172okp4ljirw391z49iu&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="i'm trying my best" width="280" height="200" style="display: block; margin: auto;">
+<img src="https://media.giphy.com/media/5Zesu5VPNGJlm/giphy.gif?cid=790b7611hx551rcmlsmjqtardhs3172okp4ljirw391z49iu&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="im trying my best" width="280" height="200" style="display: block; margin: auto;">
