@@ -4,7 +4,7 @@ SELECT
 	c.customer_state,
 	COUNT(DISTINCT c.customer_id) AS clientes_MG_RJ
 FROM customer c 
-WHERE c.customer_state = 'MG' OR c.customer_state = 'RJ'
+WHERE c.customer_state IN ('MG', 'RJ')
 GROUP BY c.customer_state;
 ```
 ___
@@ -14,7 +14,10 @@ SELECT
 	g.geolocation_state,
 	COUNT(DISTINCT(g.geolocation_city)) AS cidades
 FROM geolocation g 
-WHERE (g.geolocation_state = 'SP' OR g.geolocation_state = 'RJ') AND (g.geolocation_lat > -24.54 AND g.geolocation_lng < -45.63)
+WHERE 
+	g.geolocation_state in ('SP', 'RJ') 
+	AND g.geolocation_lat > -24.54 
+	AND g.geolocation_lng < -45.63
 GROUP BY g.geolocation_state;
 ```
 ___
@@ -26,7 +29,9 @@ SELECT
 	COUNT(oi.product_id) AS total_produtos,
 	ROUND(AVG(oi.price), 2) AS preco_medio
 FROM order_items oi
-WHERE oi.freight_value > 20 AND DATE(oi.shipping_limit_date) >= '2016-10-01' AND DATE(oi.shipping_limit_date) <= '2016-10-31';
+WHERE 
+	oi.freight_value > 20 
+	AND DATE(oi.shipping_limit_date) BETWEEN '2016-10-01' AND '2016-10-31';
 ```
 ___
 ### 4 - Mostre a quantidade total dos pedidos e o valor total do pagamento, para pagamentos entre 1 e 5 prestações ou um valor de pagamento acima de R$ 5000. Agrupe por quantidade de prestações.
@@ -36,7 +41,9 @@ SELECT
 	COUNT(op.order_id) AS quantidade_pedidos,
 	SUM(op.payment_value) AS total_pagamento
 FROM order_payments op 
-WHERE (op.payment_installments >= 1 AND op.payment_installments <= 5) OR op.payment_value > 5000
+WHERE 
+	op.payment_installments BETWEEN 1 AND 5 
+	OR op.payment_value > 5000
 GROUP BY op.payment_installments;
 ```
 ___
@@ -46,8 +53,9 @@ SELECT
 	o.order_status,
 	COUNT(o.order_id) AS quantidade_pedidos
 FROM orders o 
-WHERE (o.order_status = 'canceled' OR o.order_status = 'processing') AND 
-	(DATE(o.order_estimated_delivery_date) > '2017-01-01' OR DATE(o.order_estimated_delivery_date) < '2016-11-23')
+WHERE 
+	o.order_status in ('canceled', 'processing') 
+	AND (DATE(o.order_estimated_delivery_date) > '2017-01-01' OR DATE(o.order_estimated_delivery_date) < '2016-11-23')
 GROUP BY o.order_status ;
 ```
 ___
@@ -58,9 +66,10 @@ SELECT
 	COUNT(DISTINCT p.product_id) AS quantidade_items
 FROM products p 
 WHERE 
-	(p.product_category_name = 'perfumaria' OR p.product_category_name = 'brinquedos' OR p.product_category_name = 'esporte_lazer' OR
-	p.product_category_name = 'cama_mesa_banho' OR p.product_category_name = 'moveis_escritorio') AND p.product_photos_qty > 5 AND 
-	p.product_height_cm > 10 AND p.product_width_cm > 20
+	p.product_category_name in ('perfumaria', 'brinquedos', 'esporte_lazer', 'cama_mesa_banho', 'moveis_escritorio')
+	AND p.product_photos_qty > 5 
+	AND p.product_height_cm > 10 
+	AND p.product_width_cm > 20
 GROUP BY p.product_category_name;
 ```
 ___
